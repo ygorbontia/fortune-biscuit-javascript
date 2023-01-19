@@ -16,13 +16,18 @@ const phrases = [
   "Podemos escolher o que semear, mas somos obrigados a colher o que plantamos."
 ]
 let randomPhraseNumber = Math.round(Math.random() * 10)
+let timerOpenBiscuit
 
 fortuneBiscuit.onmouseover = () => {
-  setTimeout(() => {
+  timerOpenBiscuit = setTimeout(() => {
     toggleScreen()
 
     screen2.querySelector('p').innerHTML = phrases[randomPhraseNumber]
-  }, 1200)
+  }, 1000)
+}
+
+fortuneBiscuit.onmouseout = () => {
+  clearTimeout(timerOpenBiscuit)
 }
 
 anotherBiscuitButton.onclick = () => {
